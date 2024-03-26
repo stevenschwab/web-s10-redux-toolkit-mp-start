@@ -67,3 +67,7 @@ const slice = createSlice({
 })
 
 export default slice.reducer
+
+export const {
+  toggleVisibility, deleteQuote, editQuoteAuthenticity, setHighlightedQuote, createQuote
+} = slice.actions
