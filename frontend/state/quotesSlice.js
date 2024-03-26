@@ -49,8 +49,19 @@ const slice = createSlice({
         .find(qt => qt.id === action.payload)
       state.highlightedQuote = qt ? qt : null
     },
-    createQuote(state, action) {
-
+    createQuote: {
+      prepare(authorName, quoteText) {
+        const newQuote = {
+          authorName,
+          quoteText,
+          apocryphal: false,
+          id: getNextId()
+        }
+        return { payload: newQuote }
+      },
+      reducer(state, action) {
+        state.quotes.push(action.payload)
+      }
     }
   }
 })
