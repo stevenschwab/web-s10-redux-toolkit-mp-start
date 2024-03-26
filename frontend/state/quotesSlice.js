@@ -28,5 +28,8 @@ const slice = createSlice({
         apocryphal: false,
       },
     ],
-  }
+  },
+  reducers: {}
 })
+
+export default slice.reducer
