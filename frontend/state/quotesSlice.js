@@ -30,10 +30,8 @@ const slice = createSlice({
     ],
   },
   reducers: {
-    toggleVisibility(state) {
-      state.quotes = state.displayAllQuotes
-        ? state.quotes
-        : state.quotes.filter(qt => qt.apocryphal)
+    toggleVisibility: state => {
+      state.displayAllQuotes = !state.displayAllQuotes
     },
     deleteQuote(state, action) {
       state.quotes = state.quotes
@@ -45,11 +43,9 @@ const slice = createSlice({
       qt.apocryphal = !qt.apocryphal
     },
     setHighlightedQuote(state, action) {
-      const qt = state.quotes
-        .find(qt => qt.id === action.payload)
-      state.highlightedQuote = state.highlightedQuote.id === qt.id
+      state.highlightedQuote = state.highlightedQuote === action.payload
         ? null
-        : qt
+        : action.payload
     },
     createQuote: {
       prepare(authorName, quoteText) {
@@ -71,5 +67,9 @@ const slice = createSlice({
 export default slice.reducer
 
 export const {
-  toggleVisibility, deleteQuote, editQuoteAuthenticity, setHighlightedQuote, createQuote
+  toggleVisibility,
+  deleteQuote,
+  editQuoteAuthenticity,
+  setHighlightedQuote,
+  createQuote
 } = slice.actions

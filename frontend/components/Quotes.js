@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { toggleVisibility, deleteQuote, editQuoteAuthenticity, setHighlightedQuote, createQuote } from '../state/quotesSlice'
+import { toggleVisibility, deleteQuote, editQuoteAuthenticity, setHighlightedQuote } from '../state/quotesSlice'
 
 export default function Quotes() {
   const quotes = useSelector(st => st.quotes.quotes)

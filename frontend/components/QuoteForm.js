@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react'
+import { createQuote } from '../state/quotesSlice'
 
 const CHANGE_INPUT = 'CHANGE_INPUT'
 const RESET_FORM = 'RESET_FORM'
@@ -32,7 +33,7 @@ export default function TodoForm() {
   }
   const onNewQuote = evt => {
     evt.preventDefault()
-    // ✨ dispatch creation of a new quote here, using the values from the form
+    dispatch
     resetForm()
   }
 
