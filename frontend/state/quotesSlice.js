@@ -29,7 +29,26 @@ const slice = createSlice({
       },
     ],
   },
-  reducers: {}
+  reducers: {
+    toggleVisibility(state) {
+      state.quotes = state.displayAllQuotes
+        ? state.quotes
+        : state.quotes.filter(qt => qt.apocryphal)
+    },
+    deleteQuote(state, action) {
+      state.quotes = state.quotes
+        .filter(qt => qt.id !== action.payload)
+    },
+    editQuoteAuthenticity(state, action) {
+      
+    },
+    setHighlightedQuote(state, action) {
+
+    },
+    createQuote(state, action) {
+
+    }
+  }
 })
 
 export default slice.reducer
