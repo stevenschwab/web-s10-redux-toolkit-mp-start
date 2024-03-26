@@ -30,7 +30,7 @@ const slice = createSlice({
     ],
   },
   reducers: {
-    toggleVisibility: state => {
+    toggleVisibility(state) {
       state.displayAllQuotes = !state.displayAllQuotes
     },
     deleteQuote(state, action) {
