@@ -40,7 +40,9 @@ const slice = createSlice({
         .filter(qt => qt.id !== action.payload)
     },
     editQuoteAuthenticity(state, action) {
-      
+      const qt = state.quotes
+        .find(qt => qt.id === action.payload)
+      qt.apocryphal = !qt.apocryphal
     },
     setHighlightedQuote(state, action) {
 
