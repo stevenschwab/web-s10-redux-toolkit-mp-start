@@ -45,7 +45,9 @@ const slice = createSlice({
       qt.apocryphal = !qt.apocryphal
     },
     setHighlightedQuote(state, action) {
-
+      const qt = state.quotes
+        .find(qt => qt.id === action.payload)
+      state.highlightedQuote = qt ? qt : null
     },
     createQuote(state, action) {
 
