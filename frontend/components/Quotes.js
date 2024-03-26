@@ -1,10 +1,12 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { toggleVisibility, deleteQuote, editQuoteAuthenticity, setHighlightedQuote, createQuote } from '../state/quotesSlice'
 
 export default function Quotes() {
   const quotes = useSelector(st => st.quotes.quotes)
   const displayAllQuotes = useSelector(st => st.quotes.displayAllQuotes)
   const highlightedQuote = useSelector(st => st.quotes.highlightedQuote)
+  const dispatch = useDispatch()
 
   return (
     <div id="quotes">
@@ -23,9 +25,15 @@ export default function Quotes() {
                 <div>{qt.quoteText}</div>
                 <div>{qt.authorName}</div>
                 <div className="quote-buttons">
-                  <button onClick={() => {/* ✨ dispatch an action */ }}>DELETE</button>
-                  <button onClick={() => {/* ✨ dispatch an action */ }}>HIGHLIGHT</button>
-                  <button onClick={() => {/* ✨ dispatch an action */ }}>FAKE</button>
+                  <button onClick={() => {
+                    dispatch(deleteQuote(qt.id))
+                  }}>DELETE</button>
+                  <button onClick={() => {
+                    dispatch(setHighlightedQuote(qt.id))
+                  }}>HIGHLIGHT</button>
+                  <button onClick={() => {
+                    dispatch(editQuoteAuthenticity(qt.id))
+                  }}>FAKE</button>
                 </div>
               </div>
             ))
