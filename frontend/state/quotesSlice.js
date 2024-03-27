@@ -2,33 +2,34 @@ import { createSlice } from "@reduxjs/toolkit"
 
 let id = 1
 const getNextId = () => id++
+const initialState = {
+  displayAllQuotes: true,
+  highlightedQuote: null,
+  quotes: [
+    {
+      id: getNextId(),
+      quoteText: "Don't cry because it's over, smile because it happened.",
+      authorName: "Dr. Seuss",
+      apocryphal: false,
+    },
+    {
+      id: getNextId(),
+      quoteText: "So many books, so little time.",
+      authorName: "Frank Zappa",
+      apocryphal: false,
+    },
+    {
+      id: getNextId(),
+      quoteText: "Be yourself; everyone else is already taken.",
+      authorName: "Oscar Wilde",
+      apocryphal: false,
+    },
+  ],
+}
 
-const slice = createSlice({
+export const quotesSlice = createSlice({
   name: 'quote_state',
-  initialState: {
-    displayAllQuotes: true,
-    highlightedQuote: null,
-    quotes: [
-      {
-        id: getNextId(),
-        quoteText: "Don't cry because it's over, smile because it happened.",
-        authorName: "Dr. Seuss",
-        apocryphal: false,
-      },
-      {
-        id: getNextId(),
-        quoteText: "So many books, so little time.",
-        authorName: "Frank Zappa",
-        apocryphal: false,
-      },
-      {
-        id: getNextId(),
-        quoteText: "Be yourself; everyone else is already taken.",
-        authorName: "Oscar Wilde",
-        apocryphal: false,
-      },
-    ],
-  },
+  initialState,
   reducers: {
     toggleVisibility(state) {
       state.displayAllQuotes = !state.displayAllQuotes
@@ -64,7 +65,7 @@ const slice = createSlice({
   }
 })
 
-export default slice.reducer
+export default quotesSlice.reducer
 
 export const {
   toggleVisibility,
@@ -72,4 +73,4 @@ export const {
   editQuoteAuthenticity,
   setHighlightedQuote,
   createQuote
-} = slice.actions
+} = quotesSlice.actions
