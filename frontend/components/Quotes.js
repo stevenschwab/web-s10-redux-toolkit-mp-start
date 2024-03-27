@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import { toggleVisibility, deleteQuote, editQuoteAuthenticity, setHighlightedQuote } from '../state/quotesSlice'
 
 export default function Quotes() {
-  const quotes = useSelector(st => st.quotes.quotes)
-  const displayAllQuotes = useSelector(st => st.quotes.displayAllQuotes)
-  const highlightedQuote = useSelector(st => st.quotes.highlightedQuote)
+  const quotes = useSelector(st => st.quotesState.quotes)
+  const displayAllQuotes = useSelector(st => st.quotesState.displayAllQuotes)
+  const highlightedQuote = useSelector(st => st.quotesState.highlightedQuote)
   const dispatch = useDispatch()
 
   return (
