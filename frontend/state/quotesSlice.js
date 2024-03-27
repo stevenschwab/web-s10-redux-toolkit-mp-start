@@ -49,7 +49,7 @@ export const quotesSlice = createSlice({
         : action.payload
     },
     createQuote: {
-      prepare(authorName, quoteText) {
+      prepare({ authorName, quoteText }) {
         const newQuote = {
           authorName,
           quoteText,

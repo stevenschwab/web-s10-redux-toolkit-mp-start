@@ -35,7 +35,7 @@ export default function TodoForm() {
   }
   const onNewQuote = evt => {
     evt.preventDefault()
-    dispatchRedux(createQuote(state.authorName, state.quoteText))
+    dispatchRedux(createQuote(state))
     resetForm()
   }
 
